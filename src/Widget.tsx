@@ -21,7 +21,7 @@ export const Widget = ({ settings, helperFunctions, leafId }: WidgetProps) => {
 	}
 
 	if (settings.type === "stopwatch") {
-		return <Countdown settings={settings as StopwatchSettings} />;
+		return <Stopwatch settings={settings as StopwatchSettings} />;
 	}
 
 	if (settings.type === "counter") {

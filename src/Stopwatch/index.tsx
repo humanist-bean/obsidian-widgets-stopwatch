@@ -32,12 +32,8 @@ const Stopwatch = ({
 
 		const clockInterval = setInterval(() => {
 			const currentTime = moment();
-			const diffInSeconds = startTime.diff(currentTime, "seconds");
-
-			if (diffInSeconds < 0) {
-				setDateMessage(completedLabel || "Completed! 🎉");
-				return;
-			}
+			const diffInSeconds = Math.abs(startTime.diff(currentTime, "seconds"));
+			console.log(`TEST: diffInSeconds ${diffInSeconds}`);
 
 			const hours = Math.floor((diffInSeconds % 86400) / 3600);
 			const minutes = Math.floor((diffInSeconds % 3600) / 60);
