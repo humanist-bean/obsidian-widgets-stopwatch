@@ -5,6 +5,7 @@ import { QuoteSettings } from "src/Quote";
 import { CounterSettings } from "src/Counter";
 import { ClockSettings } from "src/Clock";
 import { CountdownSettings } from "src/Countdown";
+import { StopwatchSettings } from "src/Stopwatch";
 import { WidgetType } from "src/types/Widgets";
 
 const Config = ({ setState, state }: IConfigProps) => {
@@ -186,6 +187,43 @@ const Config = ({ setState, state }: IConfigProps) => {
 						<input
 							type="text"
 							value={(state as CountdownSettings).to}
+							onChange={(ev) => {
+								const to = ev.target.value;
+
+								setState({
+									...state,
+									to,
+								});
+							}}
+						/>
+					</div>
+				</>
+			)}
+			{state.type === "stopwatch" && (
+				<>
+					<div className="WidgetConfig__input-group">
+						<label>Date</label>
+						<br />
+						<input
+							type="datetime-local"
+							value={(state as StopwatchSettings).date}
+							onChange={(ev) => {
+								const date = ev.target.value;
+
+								setState({
+									...state,
+									date,
+								});
+							}}
+						/>
+					</div>
+
+					<div className="WidgetConfig__input-group">
+						<label>To</label>
+						<br />
+						<input
+							type="text"
+							value={(state as StopwatchSettings).to}
 							onChange={(ev) => {
 								const to = ev.target.value;
 

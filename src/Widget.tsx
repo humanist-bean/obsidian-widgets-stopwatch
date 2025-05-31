@@ -3,6 +3,7 @@ import Clock, { ClockSettings } from "./Clock";
 import Countdown, { CountdownSettings } from "./Countdown";
 import Quote, { QuoteSettings } from "./Quote";
 import Counter, { CounterSettings } from "./Counter";
+import Stopwatch, { StopwatchSettings } from "./Stopwatch";
 import { HelperFunctions } from "./types/HelperFunctions";
 import { WidgetSettings } from "./types/Widgets";
 
@@ -19,6 +20,10 @@ export const Widget = ({ settings, helperFunctions, leafId }: WidgetProps) => {
 		return <Countdown settings={settings as CountdownSettings} />;
 	}
 
+	if (settings.type === "stopwatch") {
+		return <Countdown settings={settings as StopwatchSettings} />;
+	}
+
 	if (settings.type === "counter") {
 		return (
 			<Counter
@@ -32,7 +37,7 @@ export const Widget = ({ settings, helperFunctions, leafId }: WidgetProps) => {
 	return (
 		<code>
 			Widgets: Wrong settings. <br /> Available widgets: "clock", "quote",
-			"countdown", "counter"
+			"countdown", "counter", "stopwatch"
 		</code>
 	);
 };
